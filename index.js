@@ -18,7 +18,17 @@ connection.query('SELECT * FROM todo', function (error, results, fields) {
     console.log('data is: ', results);
 });
 
-connection.query('SELECT * FROM todo', function (error, results, fields) {
+connection.query('INSERT INTO todo VALUES ("", "ซื้อผัก", 1, false, null, null)', function (error, results, fields) {
+    if (error) throw error;
+    console.log('data is: ', results);
+});
+
+connection.query('UPDATE todo SET todo_name = "พายายไปสวนสนุก" WHERE todo_id = 2', function (error, results, fields) {
+    if (error) throw error;
+    console.log('data is: ', results);
+});
+
+connection.query('DELETE FROM todo ORDER BY todo_id DESC LIMIT 1', function (error, results, fields) {
     if (error) throw error;
     console.log('data is: ', results);
 });
